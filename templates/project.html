@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container project page-container">
+  <div class="row project-num">
+    <h5>Project #{{ project.project_id }}</h5>
+  </div>
+  <div class="row project-title">
+    <h1 class="text-center">{{ project.title }}</h1>
+  </div>
+  <div class="row project-item">
+    <a class="project-link" href="{{ project.project_link }}"><h5 class="text-center">{{ project.project_link }}</h5></a>
+  </div>
+  <div class="row purpose mt-4">
+    <h3 class="text-center">Purpose & Description</h3>
+    <p>{{ project.purpose }}</p>
+  </div>
+  <div class="d-flex flex-row notable-ftr">
+    <div class="d-flex flex-column">
+      <img class="rounded" src="../static/img/{{ project.ftr_img }}" alt="...">
+    </div>
+    <div class="d-flex flex-column ms-4">
+      <h3>Most Notable Feature</h3>
+      <p>{{ project.ftr_description }}</p>
+    </div>
+  </div>
+  <div class="row techs-used mt-4 text-center">
+    <h3 class="text-center">Technologies Used</h3>
+    <div class="flex-row">
+      {% for t in project.techs %}
+        <img class="tech-icon" src="../static/img/logos/{{ t }}" alt="...">
+      {% endfor %}
+    </div>
+  </div>
+  <div class="row screenshots mt-4">
+    <h3 class="text-center col-12">Screenshots</h3>
+      {% for p in project.images %}
+        <div class="col-xs-12 col-md-6 col-lg-4 pb-3">
+          <img class="img-fluid rounded screen-img" src="../static/img/{{ p }}" alt="...">
+        </div>
+        
+      {% endfor %}
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}
